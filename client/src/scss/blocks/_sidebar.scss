@@ -1,0 +1,100 @@
+@use '../helpers' as *;
+
+.sidebar {
+    position: fixed;
+    right: -300px;
+    height: calc(100% - 60px);
+    background-color: var(--color-gray);
+    width: 300px;
+    padding: 10px 0;
+    transition: transform var(--transition-duration) ease-out, width var(--transition-duration) ease-out;
+    text-align: end;
+    z-index: 99;
+
+    &.visible {
+        transform: translateX(-300px);
+    }
+
+    @include small-mobile {
+        width: 80px;
+    }
+
+    &__profile {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: row-reverse;
+        gap: 10px;
+        background-color: var(--color-dark);
+        color: var(--color-light);
+        padding: 10px;
+        border-radius: var(--border-radius-large);
+        border-bottom-right-radius: 0;
+
+        @include hover {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+        }
+
+        @include small-mobile {
+            background-color: transparent;
+            align-items: center;
+            border-radius: var(--border-radius);
+            padding: 5px;
+        }
+    }
+
+    &__profile-username {
+        font-family: var(--font-family-accent);
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__profile-avatar {
+        @include avatar(80);
+    }
+
+    &__menu-list {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+    }
+
+    &__menu-item {
+        border-radius: var(--border-radius);
+
+        &--active {
+            background-color: var(--color-dark);
+        }
+    }
+
+    &__menu-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        font-size: 20px;
+        column-gap: 5px;
+        padding: 5px;
+        border: 1px solid var(--color-gray);
+        border-radius: var(--border-radius);
+
+        @include hover {
+            background-color: var(--color-dark);
+            border: var(--border);
+        }
+
+        @include small-mobile {
+            align-items: center;
+            justify-content: center;
+            aspect-ratio: 1;
+        }
+    }
+
+    &__menu-svg {
+        @include small-mobile {
+            @include square(30);
+        }
+    }
+}

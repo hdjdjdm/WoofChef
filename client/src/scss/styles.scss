@@ -1,0 +1,13 @@
+@use 'normalize' as *;
+@use 'fonts' as *;
+@use 'variables' as *;
+@use 'utils' as *;
+@use 'globals' as *;
+@use 'animations' as *;
+
+@use 'blocks/button' as *;
+@use 'blocks/progress' as *;
+@use 'blocks/burger-button' as *;
+@use 'blocks/header' as *;
+@use 'blocks/main-content' as *;
+@use 'blocks/sidebar' as *;

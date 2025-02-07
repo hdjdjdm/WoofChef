@@ -1,0 +1,138 @@
+@use '../helpers' as *;
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    background-color: var(--color-dark);
+    border-bottom: var(--border);
+    z-index: 100;
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+
+        @include tablet {
+            column-gap: 0px;
+        }
+    }
+
+    &__logo-title {
+        font-family: var(--font-family-light);
+
+        @include tablet {
+            font-size: 24px;
+        }
+    }
+
+    &__logo-image {
+        @include square(60);
+        
+        padding: 5px;
+        border-radius: var(--border-radius);
+    }
+
+    &__menu {
+        justify-self: center;
+    }
+
+    &__menu-svg {
+        @include tablet {
+            @include square(20);
+        }
+    }
+
+    &__menu-list {
+        display: flex;
+        align-items: center;
+        column-gap: 25px;
+
+        @include tablet {
+            column-gap: 10px;
+        }
+    }
+
+    &__menu-item {
+        border-radius: var(--border-radius);
+
+        &--active {
+            background-color: var(--color-gray);
+        }
+    }
+
+    &__menu-link {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        height: 48px;
+        font-size: 20px;
+        column-gap: 2px;
+        padding: 0 5px;
+
+        @include tablet {
+            font-size: 16px;
+        }
+
+        @include hover {
+            &::after {
+                width: 100%;
+            }
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            translate: -50%;
+            width: 0;
+            height: 2px;
+            background-color: currentColor;
+            transition-duration: inherit;
+        }
+    }
+
+    .burger-button {
+        margin-left: auto;
+    }
+
+    &__profile {
+        display: flex;
+        align-items: center;
+        column-gap: 10px;
+        background-color: var(--color-gray);
+        color: var(--color-light);
+        border-radius: var(--border-radius-large);
+        border-bottom-right-radius: 0;
+        padding: 3px;
+
+        @include tablet {
+            column-gap: 0px;
+        }
+
+        @include hover {
+            background-color: var(--color-accent);
+            color: var(--color-dark);
+        }
+    }
+
+    &__profile-username {
+        max-width: 150px;
+        font-family: var(--font-family-accent);
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        
+        @include tablet {
+            font-size: 14px;
+            max-width: 80px;
+        }
+    }
+}

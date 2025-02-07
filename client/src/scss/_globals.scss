@@ -1,0 +1,76 @@
+@use 'helpers' as *;
+
+body {
+    @include fluid-text(18, 16);
+
+    font-family: var(--font-family-base);
+    font-size: 18px;
+    color: var(--color-light);
+    background-color: var(--color-light);
+}
+
+a,
+button,
+input,
+textarea,
+svg * {
+    transition-duration: var(--transition-duration);
+}
+
+h1, h2, h3, h4 {
+    font-weight: 500;
+}
+
+h1 {
+    @include fluid-text(60, 43);
+}
+
+h2 {
+    @include fluid-text(40, 36);
+}
+
+h3 {
+    @include fluid-text(30, 26);
+}
+
+h4 {
+    @include fluid-text(20, 24);
+}
+
+h5 {
+    @include fluid-text(14, 18);
+}
+
+h6 {
+    @include fluid-text(10, 12);
+}
+
+a {
+    color: var(--color-light);
+    text-decoration: none;
+
+    @include hover {
+        color:  var(--color-accent);
+    }
+}
+
+.svg {
+    filter: var(--svg-color);
+}
+
+.svg--square {
+    @include square(25);
+}
+
+.avatar {
+    @include avatar(45);
+}
+
+ul {
+    font-size: 22px;
+}
+
+ol li {
+    font-size: 18px;
+    margin-left: 20px;
+}
